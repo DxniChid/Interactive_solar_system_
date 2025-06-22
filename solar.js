@@ -4,6 +4,10 @@ const sunMaterial = new THREE.MeshBasicMaterial({color: 0xffff00 });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sun);
 
+const earthGeometry = new THREE.SphereGeometry(2, 32, 32);
+const earthMaterial = new THREE.MeshBasicMaterial({color:0x0000ff});
+const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+scene.add(earth);
 
 window.addEventListener('resize', ()=> {
     camera.aspect = window.innerWidth / window.innerHeight;
