@@ -28,6 +28,19 @@ const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
 scene.add(neptune);
 neptune.position.x = 29;
 
+function createOrbit(radius) {
+const geometry = new THREE.RingGeometry(radius - 0.05, radius + 0.05, 64);
+  const material = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+  const ring = new THREE.Mesh(geometry, material);
+  ring.rotation.x = Math.PI / 2;  // Rotate to lie flat on XZ plane
+  scene.add(ring);
+}
+
+//These are the orbit rings
+createOrbit(15);                       // Earth and Moon
+createOrbit(22);                       // Mars
+createOrbit(40);                       // Neptune
+
 
 
 window.addEventListener('resize', ()=> {
@@ -48,7 +61,7 @@ function animate() {
     const moonOrbitRadius = 3;
 
     time += 0.01;
-    
+
     earth.position.x = earthOrbitRadius * Math.cos(time);
     earth.position.z = earthOrbitRadius * Math.sin(time);
 
@@ -62,4 +75,5 @@ function animate() {
     moon.position.z = earth.position.z + moonOrbitRadius * Math.sin(time * 5);
     renderer.render(scene, camera);
 }
+
 animate();
