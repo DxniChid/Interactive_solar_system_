@@ -22,6 +22,12 @@ const mars = new THREE.Mesh(marsGeometry, marsMaterial);
 scene.add(mars);
 mars.position.x = 22;
 
+const neptuneGeometry = new THREE.SphereGeometry(3, 32, 32);
+const neptuneMaterial = new THREE.MeshBasicMaterial({color: 0xff4500});
+const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
+scene.add(neptune);
+neptune.position.x = 29;
+
 window.addEventListener('resize', ()=> {
     camera.aspect = window.innerWidth / window.innerHeight;
 camera.updateProjectionMatrix();
