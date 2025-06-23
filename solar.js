@@ -9,6 +9,10 @@ const earthMaterial = new THREE.MeshBasicMaterial({color:0x0000ff});
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earth);
 
+const moonGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+const moonMaterial = new THREE.MeshBasicMaterial({color: 0x888888});
+const moon = new THREE.Mesh(moonGeometry, moonMaterial);
+
 window.addEventListener('resize', ()=> {
     camera.aspect = window.innerWidth / window.innerHeight;
 camera.updateProjectionMatrix();
